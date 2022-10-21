@@ -34,38 +34,39 @@ function playRound(playerMove, computerMove){
  
 const buttons = document.querySelectorAll('button');
 let pmove
-let result
+let winner
 let cpuScore = 0
 let pScore = 0
 const display = document.querySelector('.display-result');
 const text = document.createElement('p');
 const score = document.createElement('p');
 
+score.textContent = "SCORE     Computer : 0    Player : 0";
+
 display.appendChild(text);
 display.appendChild(score);
 
-buttons.forEach((button) => {
+
+const res = buttons.forEach((button) => {
 
     button.addEventListener('click', () => {
-        pmove = button.textContent;
-        result = playRound(pmove, getComputerMove());
-        text.textContent = result + "Wins !!!!!";
-        if (result === 'Player'){
-            pScore = pScore + 1;
-
-        }else if(result ==='Computer'){
-            cpuScore = cpuScore +1;
-        }
         if (pScore == 5 || cpuScore == 5){
-            score.textContent="Da game ended baby"
+            text.textContent = "The game has ended, piss off !!!!!!!"
+            return
         }else{
-            score.textContent = `Player:${pScore}    Computer:${cpuScore}`
-        }
+            pmove = button.textContent;
+            winner = playRound(pmove, getComputerMove());
+            text.textContent = winner + " Wins !!";
+            if (winner == "Player"){
+                pScore += 1
+            }else if(winner == "Computer"){
+                cpuScore += 1
+            }
+            score.textContent = `Score    Computer : ${cpuScore}    Player : ${pScore}`;
 
+    }
     });
 });
-
-
 
 
 
