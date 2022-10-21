@@ -54,7 +54,7 @@ buttons.forEach((button) => {
             pScore = pScore + 1;
 
         }else if(result ==='Computer'){
-            pScore = pScore +1;
+            cpuScore = cpuScore +1;
         }
         if (pScore == 5 || cpuScore == 5){
             score.textContent="Da game ended baby"
