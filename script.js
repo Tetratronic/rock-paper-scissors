@@ -45,6 +45,7 @@ let pScore = 0
 const display = document.querySelector('.display-result');
 const text = document.createElement('h1');
 const score = document.createElement('h4');
+score.style.cssText = 'font-size: 42px'
 
 score.innerHTML = "SCORE<br/><br/>  Player : 0    Computer : 0    ";
 text.textContent = "Let's GO !!"

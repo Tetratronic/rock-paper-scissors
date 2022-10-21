@@ -20,6 +20,10 @@ input{
     width: 150px;
     height: 150px;
     border-radius: 25px;
+    transition: all .3s ease-in-out;
+}
+input:hover{
+    transform: scale(1.2);
 }
 .title{
     padding-left: 80px;
@@ -39,7 +43,6 @@ nav{
     align-items: center;
 }
 .play-again{
-    margin-top: 90px;
     padding: 17px;
     border: none;
     border-radius: 20px;
