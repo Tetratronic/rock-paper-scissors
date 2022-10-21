@@ -41,7 +41,7 @@ const display = document.querySelector('.display-result');
 const text = document.createElement('p');
 const score = document.createElement('p');
 
-score.textContent = "SCORE     Computer : 0    Player : 0";
+score.textContent = "SCORE  Player : 0    Computer : 0    ";
 
 display.appendChild(text);
 display.appendChild(score);
@@ -56,14 +56,13 @@ const res = buttons.forEach((button) => {
         }else{
             pmove = button.textContent;
             winner = playRound(pmove, getComputerMove());
-            text.textContent = winner + " Wins !!";
+            (winner == 'Draw') ? text.textContent = "Draw" : (text.textContent = winner + " Wins !!") ;
             if (winner == "Player"){
                 pScore += 1
             }else if(winner == "Computer"){
                 cpuScore += 1
             }
-            score.textContent = `Score    Computer : ${cpuScore}    Player : ${pScore}`;
-
+            score.textContent = `Score Player : ${pScore}    Computer : ${cpuScore}    `;
     }
     });
 });
