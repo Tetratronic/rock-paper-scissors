@@ -12,30 +12,60 @@ function getComputerMove(){
 
 function playRound(playerMove, computerMove){
     if (playerMove === computerMove){
-        console.log('Its a DRAW !!!');
+        return ('Draw');
 
     }else if (playerMove == 'Rock' && computerMove == 'Scissors'){
-        console.log('Player Wins !!!!!');
+        return ('Player');
     }else if (playerMove == 'Scissors' && computerMove =='Paper'){
-        console.log('Player Win !')
+        return ('Player')
     }else if (playerMove == 'Paper' && computerMove=='Rock'){
-        console.log('Player Wins !!!!!!!')
+        return ('Player')
 
     }else if (computerMove == 'Rock' && playerMove == 'Scissors'){
-        console.log('Computer Wins !!!!!');
+        return ('Computer');
     }else if (computerMove == 'Scissors' && playerMove =='Paper'){
-        console.log('Computer Win !')
+        return ('Computer')
     }else if (computerMove == 'Paper' && playerMove=='Rock'){
-        console.log('Computer Wins !!!!!!!')
+        return 'Computer'
 }
 }
-function game(){
-    for (let i = 0; i<5; i++){
-        let playerMove = prompt("Rock, Paper, Scissors ?");
-        let computerMove = getComputerMove();
 
-        console.log("Player: ",playerMove, "Computer: ", computerMove);
 
-        playRound(playerMove , computerMove);
-}
-}
+ 
+const buttons = document.querySelectorAll('button');
+let pmove
+let result
+let cpuScore = 0
+let pScore = 0
+const display = document.querySelector('.display-result');
+const text = document.createElement('p');
+const score = document.createElement('p');
+
+display.appendChild(text);
+display.appendChild(score);
+
+buttons.forEach((button) => {
+
+    button.addEventListener('click', () => {
+        pmove = button.textContent;
+        result = playRound(pmove, getComputerMove());
+        text.textContent = result + "Wins !!!!!";
+        if (result === 'Player'){
+            pScore = pScore + 1;
+
+        }else if(result ==='Computer'){
+            pScore = pScore +1;
+        }
+        if (pScore == 5 || cpuScore == 5){
+            score.textContent="Da game ended baby"
+        }else{
+            score.textContent = `Player:${pScore}    Computer:${cpuScore}`
+        }
+
+    });
+});
+
+
+
+
+
