@@ -65,7 +65,7 @@ buttons.forEach((button) => {
 
     button.addEventListener('click', () => {
         if (pScore == 5 || cpuScore == 5){
-            text.textContent = "I said bye !! if you wanna play again click the play again BUTTON"
+            text.textContent = "I said bye !! if you wanna play again click the PLAY AGAIN button"
             return
         }else{
             pmove = button.className;
