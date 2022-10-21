@@ -12,7 +12,6 @@ function getComputerMove(){
     }
 }
 
-
 function playRound(playerMove, computerMove){
     if (playerMove === computerMove){
         return ('Draw');
@@ -36,6 +35,7 @@ function playRound(playerMove, computerMove){
 
  
 const buttons = document.querySelectorAll('input');
+const playAgain = document.querySelector('.play-again')
 let pmove
 let winner
 let pimage = document.querySelector('.playerchoice')
@@ -50,6 +50,16 @@ score.innerHTML = "SCORE<br/><br/>  Player : 0    Computer : 0    ";
 text.textContent = "Let's GO !!"
 display.appendChild(text);
 display.appendChild(score);
+
+
+playAgain.addEventListener('click', ()=>{
+    cpuScore = 0;
+    pScore = 0;
+    pimage.src = "./images/human.svg";
+    cpuimage.src = "./images/robot.svg";
+    text.textContent = "Let's GO !!"
+    score.innerHTML = "SCORE<br/><br/>  Player : 0    Computer : 0    ";
+});
 
 buttons.forEach((button) => {
 
@@ -76,7 +86,7 @@ buttons.forEach((button) => {
             score.innerHTML = `SCORE<br/> <br/> Player: ${pScore}    Computer : ${cpuScore}    `;
     }
         if (pScore == 5 || cpuScore == 5){
-            text.textContent = "The game has ended, piss off !!!!!!!"
+            text.innerHTML = "The game has ended, piss off !!!!!!! The final winner is: <br/><br/>" + winner;
     }
     });
 

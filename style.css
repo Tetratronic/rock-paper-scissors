@@ -1,7 +1,26 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 input{
     width: 150px;
     height: 150px;
     border-radius: 25px;
+}
+
+.play-again{
+    padding: 17px;
+    border: none;
+    border-radius: 20px;
+    color: blanchedalmond;
+    font-family :Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    background-color: crimson;
+}
+
+.play-again:hover{
+    background-color: black;
 }
 
 img{
